@@ -63,33 +63,37 @@ const App = () => {
 
   return (
     <>
-      <form className='' onSubmit={submitHandler}>
-        <h1>Create Notes</h1>
-        <input name='title' type="text" placeholder='enter test name'/>
-        <input name='description' type="text" placeholder='enter description name'/>
-        <button className='submit'>Submit</button>
-      </form>
-      <form className='updatenote' onSubmit={removeUpdateHandler}>
-        <h1>Update Notes</h1>
-        <input name='description' type="text" placeholder='enter description name'/>
-        <button className='submit' >Submit</button>
-      </form>
-      <div className="notes">
-        {notes.map((note,key)=>{
-          return(
-            <div key={key} className="note">
-              <h1>{note.title}</h1>
-              <p>{note.description}</p>
-              <div className="buttons">
-                <button className='delete' onClick={()=>{deleteNote(note._id)}}>Delete</button>
-                <button className='update' onClick={()=>{updateNote(note._id)}}>Update</button>
+      <div className="container">
+        <div className="forms">
+          <form className='' onSubmit={submitHandler}>
+            <h1>Create Notes</h1>
+            <input name='title' type="text" placeholder='enter test name'/>
+            <input name='description' type="text" placeholder='enter description name'/>
+            <button className='submit'>Submit</button>
+          </form>
+          <form className='updatenote' onSubmit={removeUpdateHandler}>
+            <h1>Update Notes</h1>
+            <input name='description' type="text" placeholder='enter description name'/>
+            <button className='submit' >Submit</button>
+          </form>
+        </div>
+        <div className="notes">
+          {notes.map((note,key)=>{
+            return(
+              <div key={key} className="note">
+                <h1>{note.title}</h1>
+                <p>{note.description}</p>
+                <div className="buttons">
+                  <button className='delete' onClick={()=>{deleteNote(note._id)}}>Delete</button>
+                  <button className='update' onClick={()=>{updateNote(note._id)}}>Update</button>
+                </div>
               </div>
-            </div>
-          )
-        })
-        }
+            )
+          })
+          }
+        </div>
       </div>
-    </>
+   </>
   )
 }
 
